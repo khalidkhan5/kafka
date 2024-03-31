@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class MyKafkaListener {
     @KafkaHandler
     public void handleStringMessage(String message){
-        System.out.println("Handle string message: "+ message);
+        System.out.println("This is the message produced by producer: "+ message);
     }
 //    @KafkaHandler
 //    public void handleObjectMessage(Object message){

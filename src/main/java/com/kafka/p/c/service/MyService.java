@@ -10,9 +10,7 @@ import org.springframework.stereotype.Service;
 public class MyService {
     @Autowired
     KafkaMessageProducer kafkaMessageProducer;
-    public void sendMethod(){
-        for(int i=0;i<100;i++){
-            kafkaMessageProducer.sendKafkaMessage("my-basic-producer-consumer","Count: "+i);
-        }
+    public void sendMethod(String message){
+        kafkaMessageProducer.sendKafkaMessage("my-basic-producer-consumer",message);
     }
 }
