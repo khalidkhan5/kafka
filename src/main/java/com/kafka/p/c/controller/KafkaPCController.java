@@ -15,9 +15,9 @@ public class KafkaPCController {
     @Autowired
     MyService myService;
 
-    @PostMapping("/producer/{message}")
-    ResponseEntity<?> produce(@PathVariable String message){
-        myService.sendMethod(message);
+    @PostMapping("/producer/{message}/{topic}")
+    ResponseEntity<?> produce(@PathVariable String message, @PathVariable String topic){
+        myService.sendMethod(topic,message);
         return ResponseEntity.status(HttpStatus.OK).body("");
     }
 }

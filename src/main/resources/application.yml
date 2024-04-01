@@ -1,3 +1,12 @@
 spring:
   kafka:
     bootstrap-servers: localhost:9092
+    consumers:
+      group-a:  # Group A configuration
+        group-id: consumer-group-a
+        # Other group-specific consumer configuration (optional)
+      group-b:  # Group B configuration
+        group-id: consumer-group-b
+        # Other group-specific consumer configuration (optional)
+
+
