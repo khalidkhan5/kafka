@@ -6,6 +6,7 @@ import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
+import java.util.Comparator;
 import java.util.Map;
 
 @Component
@@ -27,6 +28,5 @@ public class MyKafkaListener {
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
-
     }
 }

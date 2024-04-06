@@ -2,6 +2,7 @@ package com.kafka.p.c.service.producer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.header.internals.RecordHeader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -20,7 +21,8 @@ public class KafkaMessageProducer {
     public void sendKafkaMessage(String topic, String key, Map data) {
         try {
             String jsonData = objectMapper.writeValueAsString(data);
-            kafkaTemplate.send(topic, key, jsonData);
+            ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, jsonData);
+            kafkaTemplate.send(record);
             System.out.println("Message sent to kafka topic: " + topic);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
