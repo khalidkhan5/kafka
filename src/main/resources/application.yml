@@ -8,5 +8,7 @@ spring:
       group-b:  # Group B configuration
         group-id: consumer-group-b
         # Other group-specific consumer configuration (optional)
-
+my:
+  app:
+    maxRetries: 3
 

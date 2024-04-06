@@ -16,8 +16,8 @@ public class My2ndKafkaListener {
     @KafkaListener( topics = {"my-basic-producer-consumer", "my-2-producer-consumer"},groupId = "consumer-group-b")
     public void consumeAllTopics(ConsumerRecord<String, String> record){
         try{
-            String topic = record.topic().toString();
-            String key = record.key().toString();
+            String topic = record.topic();
+            String key = record.key();
             Map myObject = objectMapper.readValue(record.value(), Map.class);
             System.out.println("The message consumed by Group B: "+" Topic: "+topic+", key: "+key);
 
